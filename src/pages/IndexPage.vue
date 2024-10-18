@@ -91,6 +91,10 @@ header {
   align-items: center;
   gap: 48px;
 
+  .welcome-name-mobile{
+    display: none !important;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
