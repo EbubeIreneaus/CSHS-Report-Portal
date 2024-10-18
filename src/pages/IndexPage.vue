@@ -5,14 +5,31 @@
     <header>
       <nav>
         <q-img src="~assets/images/logo.png" class="logo-img" />
-        <div class="welcome-name">
+        <div class="welcome-name hide-sm">
           <p class="name">Welcome Kodar</p>
         </div>
         <div class="account-info">
           <q-img src="~assets/images/sailor.jpg" class="p-img" />
           <p>Account Info</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            class="svg"
+          >
+            <path
+              d="M12 3.05606C11.175 3.05606 10.5 3.73106 10.5 4.55606C10.5 5.38106 11.175 6.05606 12 6.05606C12.825 6.05606 13.5 5.38106 13.5 4.55606C13.5 3.73106 12.825 3.05606 12 3.05606ZM12 18.0561C11.175 18.0561 10.5 18.7311 10.5 19.5561C10.5 20.3811 11.175 21.0561 12 21.0561C12.825 21.0561 13.5 20.3811 13.5 19.5561C13.5 18.7311 12.825 18.0561 12 18.0561ZM12 10.5561C11.175 10.5561 10.5 11.2311 10.5 12.0561C10.5 12.8811 11.175 13.5561 12 13.5561C12.825 13.5561 13.5 12.8811 13.5 12.0561C13.5 11.2311 12.825 10.5561 12 10.5561Z"
+              fill="#15015A"
+            />
+          </svg>
         </div>
       </nav>
+
+      <div class="welcome-name-mobile">
+        <p class="name">Welcome Kodar</p>
+      </div>
 
       <div class="alert">
         <svg
@@ -51,7 +68,9 @@
       <div style="text-align: center">
         <span
           >Copyright © 2024 CAROS STANDARD HIGH SCHOOL. All rights reserved.<br /></span
-        ><span class="tw-underline">Powered By Reconsoft Microsystem Limited!</span>
+        ><span class="tw-underline"
+          >Powered By Reconsoft Microsystem Limited!</span
+        >
       </div>
     </div>
   </main>
@@ -206,8 +225,90 @@ header {
   }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
+  header {
+    padding: 16px 20px;
 
+    .welcome-name-mobile {
+      display: flex;
+      width: 294px;
+      height: 68px;
+      padding: 8px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 12px;
+      background: $accent;
+      .name {
+        color: #fff;
+        font-family: Raleway;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 22px;
+      }
+    }
+
+    nav {
+      .logo-img {
+        width: 135.474px;
+        height: 48.112px;
+        flex-shrink: 0;
+      }
+      .welcome-name {
+        display: none;
+      }
+      .account-info {
+        width: fit-content;
+
+        .p-img {
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+        }
+
+        p {
+          display: none;
+        }
+
+        .svg {
+          display: inline;
+        }
+      }
+    }
+
+    .alert {
+      padding: 8px 12px;
+    }
+  }
+
+  .mini-body {
+    width: 275px;
+    gap: 24px;
+    margin-left: -137.5px;
+    top: 320px;
+    .navigate {
+      display: flex;
+      width: 275px;
+      height: 100px;
+      padding: 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+  }
+  .footer {
+    width: 353px;
+    padding: 10px;
+    margin-left: -176.5px;
+    top: 586px;
+
+    span{
+      font-size: 10px;
+    }
+  }
 }
 
 @keyframes marquee {
