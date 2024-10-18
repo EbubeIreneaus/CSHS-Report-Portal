@@ -146,7 +146,7 @@ header {
       line-height: 22px;
 
       overflow: hidden !important;
-      animation: marquee 15s linear infinite;
+      animation: marquee 20s linear infinite;
     }
   }
 }
@@ -206,9 +206,13 @@ header {
   }
 }
 
+@media (max-width: 480px){
+
+}
+
 @keyframes marquee {
   0% {
-    transform: translate(0, 0);
+    transform: translate(100%, 0);
   }
   100% {
     transform: translate(-100%, 0);
