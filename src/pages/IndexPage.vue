@@ -59,6 +59,9 @@
 
 <style lang="scss" scoped>
 main {
+  background-image: url('/images/background-home.png');
+  background-position: center;
+  background-size: cover;
 }
 
 header {
