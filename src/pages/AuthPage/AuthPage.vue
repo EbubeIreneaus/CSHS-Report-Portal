@@ -10,7 +10,7 @@ const user = reactive({
   <div class="tw-bg-primary tw-w-full tw-flex tw-justify-center">
     <div class="main">
       <div class="tw-w-full">
-        <img src="./assets/images/logo.png" class="school-logo" />
+      <img src="~assets/images/logo.png" class="school-logo" />
       </div>
       <p class="school-title">Caros Standard High School</p>
       <div class="content">
