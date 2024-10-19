@@ -81,6 +81,7 @@ main {
   background-image: url('/images/background-home.png');
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 header {
@@ -92,7 +93,7 @@ header {
   gap: 48px;
 
   .welcome-name-mobile{
-    display: none !important;
+    display: none;
   }
 
   nav {
@@ -147,6 +148,9 @@ header {
         font-style: normal;
         font-weight: 500;
         line-height: 30px;
+      }
+      .svg{
+        display: none;
       }
     }
   }
@@ -218,6 +222,7 @@ header {
   align-items: center;
   gap: 10px;
   display: inline-flex;
+
 
   span {
     color: black;
