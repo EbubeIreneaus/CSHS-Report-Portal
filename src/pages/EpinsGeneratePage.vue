@@ -96,6 +96,7 @@ const form = reactive({
 </template>
 
 <style lang="scss" scoped>
+
 .main {
   margin: 0 100px;
   max-width: 979px;
@@ -154,7 +155,8 @@ section {
 
   .main-cont {
     display: flex;
-    width: 567px;
+    max-width: 567px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
@@ -209,8 +211,11 @@ section {
 
 @media (max-width: 480px) {
   .main {
-    margin: auto;
+    margin: 0px 0px !important;
     padding: 0 20px;
+    max-width: 100vw;
+
+
 
     p:first-child {
       font-size: 20px;
@@ -228,6 +233,7 @@ section {
   .section {
     .main-cont {
       gap: 24px;
+
       .each {
         p {
           font-size: 16px;
