@@ -26,7 +26,7 @@
       </nav>
 
       <div class="welcome-name-mobile">
-        <p class="name">Welcome Kodar</p>
+        <p class="name">Welcome, Kodar</p>
       </div>
 
       <div class="alert">
