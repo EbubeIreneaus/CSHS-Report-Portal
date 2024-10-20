@@ -209,8 +209,8 @@ section {
 
 @media (max-width: 480px) {
   .main {
-    width: 353px;
     margin: auto;
+    padding: 0 20px;
 
     p:first-child {
       font-size: 20px;
