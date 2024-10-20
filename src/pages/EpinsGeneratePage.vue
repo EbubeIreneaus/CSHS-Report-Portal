@@ -15,26 +15,28 @@ const form = reactive({
     <p>Result Access Pin Generation</p>
     <section>
       <div class="main-cont">
-        <div class="each md:tw-w-[350px] tw-justify-between">
+        <div class="each tw-w-[277px] md:tw-w-[350px] tw-justify-between">
           <p>Session</p>
           <q-select
             v-model="form.session"
             :options="s_options"
             borderless
-            class="tw-border tw-w-[123px] tw-px-[16px] select-input"
+            class="tw-border tw-w-[127px] tw-px-[16px] select-input"
           />
         </div>
 
-        <div class="each md:tw-w-[390px] tw-justify-between">
+        <div
+          class="each tw-gap-[110px] md:tw-gap-0 md:tw-w-[390px] md:tw-justify-between"
+        >
           <p>Level</p>
           <q-input
             v-model="form.level"
             borderless
-            class="tw-border tw-w-[163px] tw-px-[16px]"
+            class="tw-border tw-w-[143px] md:tw-w-[163px] tw-px-[16px]"
           />
         </div>
 
-        <div class="each md:tw-w-[350px] tw-justify-between">
+        <div class="each tw-w-[274px] md:tw-w-[350px] tw-justify-between">
           <p>Term</p>
           <q-select
             v-model="form.session"
@@ -44,26 +46,26 @@ const form = reactive({
           />
         </div>
 
-        <div class="each tw-self-stretch !tw-gap-[57px]">
+        <div class="each tw-self-stretch tw-gap-[32px] md:!tw-gap-[57px]">
           <p class="v">Access Pin Fee:</p>
           <p class="vl">N0.00</p>
         </div>
-        <div class="each tw-self-stretch !tw-gap-[57px]">
+        <div class="each tw-self-stretch !tw-gap-[32px] md:!tw-gap-[57px]">
           <p class="v">System Charges</p>
           <p class="vl">N0.00</p>
         </div>
 
-        <div class="each tw-self-stretch !tw-gap-[57px]">
+        <div class="each tw-self-stretch tw-gap-[32px] md:!tw-gap-[57px]">
           <p class="v">Bank Charges</p>
           <p class="vl">N0.00</p>
         </div>
-        <div class="each tw-self-stretch !tw-gap-[57px]">
+        <div class="each tw-self-stretch tw-gap-[32px] md:!tw-gap-[57px]">
           <p class="v">Total Amount</p>
           <p class="vl">N0.00</p>
         </div>
 
-        <div class="each md:tw-w-[362px] tw-justify-between">
-          <p>Phone</p>
+        <div class="each md:tw-w-[362px] md:tw-justify-between tw-gap-[35px] md:tw-gap-0" >
+          <p>Phone number:</p>
           <q-input
             v-model="form.phone"
             borderless
@@ -71,12 +73,12 @@ const form = reactive({
           />
         </div>
 
-        <div class="each tw-self-stretch tw-justify-between">
+        <div class="each tw-self-stretch md:tw-justify-between tw-gap-[104px] md:tw-gap-0">
           <p>Email</p>
           <q-input
             v-model="form.email"
             borderless
-            class="tw-border tw-w-[340px] tw-px-[16px] email-input"
+            class="tw-border md:tw-w-[340px] tw-px-[16px] email-input"
           />
         </div>
       </div>
@@ -89,7 +91,7 @@ const form = reactive({
       Paystack payment gateway is been used for the system charges payment 
     </p>
 
-    <q-btn no-caps flat  label="next" class="next-btn" />
+    <q-btn no-caps flat label="next" class="next-btn" />
   </div>
 </template>
 
@@ -200,6 +202,47 @@ section {
         font-style: normal;
         font-weight: 500;
         line-height: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 353px;
+    margin: auto;
+
+    p:first-child {
+      font-size: 20px;
+    }
+
+    .p2{
+      font-size: 14px;
+    }
+
+    .p3{
+      font-size: 16px;
+    }
+  }
+
+  .section {
+    .main-cont {
+      gap: 24px;
+      .each {
+        p {
+          font-size: 16px;
+        }
+
+        .v{
+          font-size: 16px;
+          line-height: 25px;
+          width: 124px;
+        }
+
+        .vl{
+          font-size: 16px;
+          line-height: 22px;
+        }
       }
     }
   }
