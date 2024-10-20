@@ -2,12 +2,16 @@ import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/auth', component: () => import('pages/AuthPage/AuthPage.vue')
+    path: '/auth',
+    component: () => import('pages/AuthPage/AuthPage.vue'),
   },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      { path: '', component: () => import('pages/IndexPage.vue') },
+      {path: 'generate-result-epins', component: () => import('pages/EpinsGeneratePage.vue')}
+    ],
   },
 
   // Always leave this as last one,

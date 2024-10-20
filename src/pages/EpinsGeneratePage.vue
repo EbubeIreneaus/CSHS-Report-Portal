@@ -1,0 +1,207 @@
+<script lang="ts" setup>
+import { reactive } from 'vue';
+const s_options = ['2020/2021', '2021/2023', '2022/2023', '2023/2024']; //session options
+
+const form = reactive({
+  session: 'select',
+  level: null,
+  email: 'danielolajireolamilekan2020@gmail.com',
+  phone: '08061982520',
+});
+</script>
+
+<template>
+  <div class="main">
+    <p>Result Access Pin Generation</p>
+    <section>
+      <div class="main-cont">
+        <div class="each md:tw-w-[350px] tw-justify-between">
+          <p>Session</p>
+          <q-select
+            v-model="form.session"
+            :options="s_options"
+            borderless
+            class="tw-border tw-w-[123px] tw-px-[16px] select-input"
+          />
+        </div>
+
+        <div class="each md:tw-w-[390px] tw-justify-between">
+          <p>Level</p>
+          <q-input
+            v-model="form.level"
+            borderless
+            class="tw-border tw-w-[163px] tw-px-[16px]"
+          />
+        </div>
+
+        <div class="each md:tw-w-[350px] tw-justify-between">
+          <p>Term</p>
+          <q-select
+            v-model="form.session"
+            :options="s_options"
+            borderless
+            class="tw-border tw-w-[123px] tw-px-[16px] select-input"
+          />
+        </div>
+
+        <div class="each tw-self-stretch !tw-gap-[57px]">
+          <p class="v">Access Pin Fee:</p>
+          <p class="vl">N0.00</p>
+        </div>
+        <div class="each tw-self-stretch !tw-gap-[57px]">
+          <p class="v">System Charges</p>
+          <p class="vl">N0.00</p>
+        </div>
+
+        <div class="each tw-self-stretch !tw-gap-[57px]">
+          <p class="v">Bank Charges</p>
+          <p class="vl">N0.00</p>
+        </div>
+        <div class="each tw-self-stretch !tw-gap-[57px]">
+          <p class="v">Total Amount</p>
+          <p class="vl">N0.00</p>
+        </div>
+
+        <div class="each md:tw-w-[362px] tw-justify-between">
+          <p>Phone</p>
+          <q-input
+            v-model="form.phone"
+            borderless
+            class="tw-border tw-w-[137px] tw-px-[16px]"
+          />
+        </div>
+
+        <div class="each tw-self-stretch tw-justify-between">
+          <p>Email</p>
+          <q-input
+            v-model="form.email"
+            borderless
+            class="tw-border tw-w-[340px] tw-px-[16px] email-input"
+          />
+        </div>
+      </div>
+    </section>
+    <p class="p2">
+      Note: Access to result is completely free however you will pay system
+      charges for the processing and generation of the result ePIN
+    </p>
+    <p class="p3">
+      Paystack payment gateway is been used for the system charges payment 
+    </p>
+
+    <q-btn no-caps flat  label="next" class="next-btn" />
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.main {
+  margin: 0 100px;
+  max-width: 979px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+
+  p:first-child {
+    color: #000;
+    font-family: Raleway;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+  }
+
+  .p2 .p3 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    align-self: stretch;
+  }
+
+  .p2 {
+    color: #000;
+    font-size: 16px;
+  }
+
+  .p3 {
+    color: $accent;
+    font-size: 20px;
+  }
+
+  .next-btn {
+    width: 104px;
+    background-color: $accent;
+    color: #fff;
+    font-family: Raleway;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 2px;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+
+  .main-cont {
+    display: flex;
+    width: 567px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .each {
+      display: flex;
+      align-items: center;
+
+      p {
+        color: #000;
+        font-family: Raleway;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 22px;
+      }
+
+      .v {
+        line-height: 25px !important;
+        width: 170px;
+      }
+
+      .vl {
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+      }
+
+      .email-input {
+        color: #000;
+        font-family: Raleway;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+      }
+
+      .select-input {
+        color: #000;
+        font-family: Raleway;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+      }
+    }
+  }
+}
+</style>
