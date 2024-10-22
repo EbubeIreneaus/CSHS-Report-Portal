@@ -4,7 +4,7 @@
 
 
     <div class="mini-body">
-      <q-btn flat class="navigate"  noCaps>
+      <q-btn flat class="navigate" to="/check-result"  noCaps>
         <p>Check Result</p>
       </q-btn>
 
