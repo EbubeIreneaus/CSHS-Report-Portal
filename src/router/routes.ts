@@ -6,6 +6,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/AuthPage/AuthPage.vue'),
   },
   { path: '/result', component: () => import('pages/ResultPage.vue') },
+
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
@@ -19,6 +20,15 @@ const routes: RouteRecordRaw[] = [
         path: 'check-result',
         component: () => import('pages/CheckResultPage.vue'),
       },
+    ],
+  },
+
+  {
+    path: '/teacher',
+    component: () => import('layouts/TeachersLayout.vue'),
+    children: [
+      {path: '', component: () => import('pages/Teachers/HomePage.vue')},
+      {path: 'students', component: ()=>import('pages/Teachers/ManageStudents.vue')}
     ],
   },
 
