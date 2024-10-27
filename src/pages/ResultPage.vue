@@ -288,52 +288,52 @@ onBeforeMount(()=>{
           </tr>
         </tbody>
       </table>
-      <h2 class="text-center tw-font-semibold tw-text-3xl tw-my-10">
+      <h2 class="text-center tw-font-semibold tw-text-3xl tw-mt-10 tw-mb-14">
         COGNITIVE DOMAIN
       </h2>
 
       <div class="tw-relative tw-mb-[60px]">
         <div
-          class="tw-absolute tw-right-0 tw-bottom-0 tw-h-full tw-text-center rotated-text"
+          class=" text-center"
         >
           <h2 class="text-h3 text-capitalize">Performance report</h2>
         </div>
         <table class="r-table">
           <tbody>
-            <tr>
+            <tr class="*:tw-px-2">
               <th class="tw-w-[150px] tw-text-xl tw-border">SUBJECT</th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">CA</div>
-                <div class="text-left">40</div>
+                <div class="">40</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">EXAM</div>
-                <div class="text-left">60</div>
+                <div class="">60</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">3RD TERM</div>
-                <div class="text-left">100</div>
+                <div class="">100</div>
               </th>
               <th class="tw-border tw-w-[60px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">2ND TERM</div>
-                <div class="text-left">100</div>
+                <div class="">100</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">1ST TERM</div>
-                <div class="text-left">100</div>
+                <div class="">100</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">SESSION AVERAGE</div>
-                <div class="text-left">100</div>
+                <div class="">100</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
-                <div class="rotated-text tw-mb-2">GRADE</div>
+                <div class=" tw-mb-2">GRADE</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
-                <div class="rotated-text tw-mb-2">SUBJ.POSITION</div>
+                <div class=" tw-mb-2">SUBJ.POSITION</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
-                <div class="rotated-text tw-mb-2">REMARK</div>
+                <div class=" tw-mb-2">REMARK</div>
               </th>
             </tr>
             <tr class="r-c" v-for="st in studentScores" :key="st.subject">
@@ -444,8 +444,7 @@ onBeforeMount(()=>{
   font-weight: 400;
 }
 .rotated-text {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+
 }
 .a-c {
   color: $accent;
