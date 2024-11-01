@@ -25,7 +25,7 @@ function Login() {
     }
 
     if (user.id.startsWith('te') && user.password === '123456') {
-      useActivityStore().is_logged_in_as_student = true
+      useActivityStore().is_logged_in_as_teacher = true
       return router.push('/teacher');
     }
 

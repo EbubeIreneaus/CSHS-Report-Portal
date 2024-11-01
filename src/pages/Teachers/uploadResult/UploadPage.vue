@@ -1,6 +1,14 @@
+<!-- eslint-disable quotes -->
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup>
-import { onBeforeMount, onMounted, reactive } from 'vue';
+import { onBeforeMount, onMounted, reactive, ref } from 'vue';
+import { useQuasar, useTimeout } from 'quasar';
+import { useRouter } from 'vue-router';
+
+const { registerTimeout } = useTimeout();
+const $q = useQuasar();
+const isLoading = ref(false);
+const router = useRouter();
 
 const subjects = [
   'Mathematics',
@@ -23,7 +31,7 @@ const subjects = [
 // Helper functions to generate grade, remark, and position
 
 const r_form = reactive({
-  name: '',
+  name: 'Okigwe Ebube I',
   gender: 'Male',
   class: 'SS3B',
   term: 'First Term',
@@ -160,6 +168,23 @@ const r_form = reactive({
   ],
 });
 
+function saveRecord() {
+  $q.dialog({
+    title: 'Confirmation',
+    message:
+      'I am sure this submitted result is correct, and meant for student: OKIGWE EBUBE IRENEAUS',
+    cancel: true,
+    persistent: true,
+    color: 'accent',
+    ok: "Yes I'M",
+  }).onOk(() => {
+    isLoading.value = true;
+    registerTimeout(() => {
+      isLoading.value = false;
+      router.push('/teacher/uploadResult/students');
+    }, 3000);
+  });
+}
 onMounted(() => {
   let meta = document.querySelector('meta[name=viewport]');
   meta.setAttribute('content', '');
@@ -374,7 +399,7 @@ onBeforeMount(() => {
                 <div class="tw-mb-2">REMARK</div>
               </th>
             </tr>
-            <tr class="r-c" v-for="course, index in 9" :key="index">
+            <tr class="r-c" v-for="(course, index) in 9" :key="index">
               <td>
                 <q-select
                   v-model="r_form.subjects[index].name"
@@ -584,7 +609,7 @@ onBeforeMount(() => {
       </div>
 
       <div class="tw-py-10 tw-mt-12 tw-mb-10">
-        <div class="tw-grid tw-grid-cols-5 nt tw-mb-3">
+        <div class="tw-grid tw-grid-cols-5 nt tw-mb-3 tw-items-end">
           <p class="tw-col-span-1">Class Teacher’s comment:</p>
           <div class="tw-col-span-4">
             <q-input
@@ -597,7 +622,7 @@ onBeforeMount(() => {
             />
           </div>
         </div>
-        <div class="tw-grid tw-grid-cols-5 nt tw-mb-7">
+        <div class="tw-grid tw-grid-cols-5 nt tw-mb-7 tw-items-end">
           <p class="tw-col-span-1">Name Date & Sign:</p>
           <div class="tw-col-span-4">
             <q-input
@@ -610,7 +635,7 @@ onBeforeMount(() => {
             />
           </div>
         </div>
-        <div class="tw-grid tw-grid-cols-5 nt tw-mb-3">
+        <div class="tw-grid tw-grid-cols-5 nt tw-mb-3 tw-items-end">
           <p class="tw-col-span-1">Principal's Comment:</p>
           <div class="tw-col-span-4">
             <q-input
@@ -623,7 +648,7 @@ onBeforeMount(() => {
             />
           </div>
         </div>
-        <div class="tw-grid tw-grid-cols-5 nt">
+        <div class="tw-grid tw-grid-cols-5 nt tw-items-end">
           <p class="tw-col-span-1">Name Date & Sign:</p>
           <div class="tw-col-span-4">
             <q-input
@@ -655,13 +680,19 @@ onBeforeMount(() => {
           <q-input
             type="date"
             v-model="r_form.next_term_start"
+            borderless
             class="tw-inline-block tw-w-40 tw-mx-2 tw-font-bold"
           />
         </div>
       </div>
 
       <div class="tw-flex tw-justify-center">
-        <q-btn label="Save Record" color="accent"  />
+        <q-btn
+          label="Save Record"
+          color="accent"
+          @click="saveRecord"
+          :loading="isLoading"
+        />
       </div>
     </section>
   </main>

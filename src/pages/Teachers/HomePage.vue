@@ -4,7 +4,7 @@
 
 <template>
     <div class="mini-body">
-      <q-btn flat class="navigate" to="/"  noCaps>
+      <q-btn flat class="navigate" to="/teacher/uploadResult/students"  noCaps>
         <p>Upload Result</p>
       </q-btn>
 
