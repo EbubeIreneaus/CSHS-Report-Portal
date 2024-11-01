@@ -3,7 +3,7 @@
     <header>
       <nav>
         <q-img src="~assets/images/logo.png" class="logo-img" />
-        <div class="welcome-name hide-sm ">
+        <div class="welcome-name hide-sm">
           <p class="name text-center">Welcome Kodar SS3B</p>
         </div>
         <div class="account-info">
@@ -65,7 +65,16 @@
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+import { useActivityStore } from 'src/stores/acivity';
+
+const router = useRouter();
+
+if (!useActivityStore().is_logged_in_as_teacher) {
+  router.push('/auth');
+}
+</script>
 
 <style scoped lang="scss">
 main {
@@ -197,7 +206,7 @@ header {
     .welcome-name-mobile {
       display: flex;
       width: 294px;
-      
+
       padding: 8px 16px;
       justify-content: center;
       align-items: center;

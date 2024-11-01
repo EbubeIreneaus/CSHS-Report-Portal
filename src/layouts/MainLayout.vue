@@ -65,7 +65,16 @@
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+import { useActivityStore } from 'src/stores/acivity';
+
+const router = useRouter();
+
+if (!useActivityStore().is_logged_in_as_student) {
+  router.push('/auth');
+}
+</script>
 
 <style scoped lang="scss">
 main {

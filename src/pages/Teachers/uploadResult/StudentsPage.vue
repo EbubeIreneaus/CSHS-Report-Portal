@@ -40,7 +40,7 @@ const pag = ref(1);
           <p class="tw-text-xl tw-font-bold text-accent">
             {{ index + 1 }} . {{ s.name }}
           </p>
-          <q-btn label="view details" no-caps color="accent" />
+          <q-btn label="view details" no-caps color="accent" to="/teacher/uploadResult/upload" />
         </div>
         <div class="tw-flex tw-justify-end">
           <q-pagination

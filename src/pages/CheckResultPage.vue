@@ -1,36 +1,98 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
+import { useActivityStore } from 'src/stores/acivity';
+import { ref } from 'vue';
+import { useQuasar, useTimeout } from 'quasar';
+
+const isLoadingResult = ref(false);
+const { registerTimeout } = useTimeout();
+const router = useRouter();
+const $q = useQuasar();
+
+const submit = () => {
+  isLoadingResult.value = true;
+
+  registerTimeout(() => {
+    if (useActivityStore().is_ePin_generated) {
+      return router.push('/result');
+    }
+    isLoadingResult.value = false;
+    $q.dialog({
+      title: 'No ePIN Generated For This Session',
+      message: 'Would you like to go generate ePin?',
+      color: 'accent',
+      cancel: true,
+      persistent: true,
+      ok: 'yes',
+    }).onOk(() => {
+      return router.push('/generate-result-epins');
+    });
+  }, 4000);
+};
+</script>
 
 <template>
   <main>
     <p class="rs">Result Selection</p>
-    <div class="s_subcomponent">
-      <div class="form ">
-        <div class="tw-flex tw-w-[274px] sm:tw-w-[350px] tw-justify-between tw-items-center">
+    <form class="s_subcomponent" @submit.prevent="submit">
+      <div class="form">
+        <div
+          class="tw-flex tw-w-[274px] sm:tw-w-[350px] tw-justify-between tw-items-center"
+        >
           <label>Session</label>
-          <select class="tw-outline-none tw-border tw-px-1 tw-py-1.5 tw-w-[127px]">
-            <option>-----select--------</option>
+          <select
+            class="tw-outline-none tw-border tw-px-1 tw-py-1.5 tw-w-[127px]"
+            required
+          >
+            <option disabled selected>-----select--------</option>
+            <option>2020/2021</option>
+            <option>2021/2022</option>
+            <option>2022/2023</option>
+            <option>2023/2024</option>
+            <option>2024/2025</option>
           </select>
         </div>
 
-        <div class="tw-flex sm:tw-w-[390px] sm:tw-justify-between tw-items-center tw-gap-[110px] sm:tw-gap-0">
+        <div
+          class="tw-flex sm:tw-w-[390px] sm:tw-justify-between tw-items-center tw-gap-[110px] sm:tw-gap-0"
+        >
           <label>Level</label>
-          <input
-            type="text"
+          <select
             class="tw-w-[143px] sm:tw-w-[163px] tw-border tw-outline-none tw-px-1 tw-py-1.5"
-          />
-        </div>
-
-        <div class="tw-flex tw-w-[274px] sm:tw-w-[350px] tw-justify-between tw-items-center">
-          <label>Term</label>
-          <select class="tw-outline-none tw-border tw-px-4 tw-py-1.5 tw-w-[124px]">
-            <option>-----select--------</option>
+            required
+          >
+            <option disabled selected>-----select--------</option>
+            <option>JSS1</option>
+            <option>JSS2</option>
+            <option>JSS3</option>
+            <option>SS1</option>
+            <option>SS2</option>
+            <option>SS3</option>
           </select>
         </div>
-        <div class="tw-flex tw-w-full sm:tw-w-[507px] tw-justify-between tw-items-center">
+
+        <div
+          class="tw-flex tw-w-[274px] sm:tw-w-[350px] tw-justify-between tw-items-center"
+        >
+          <label>Term</label>
+          <select
+            class="tw-outline-none tw-border tw-px-2 tw-py-1.5 tw-w-[124px]"
+            required
+          >
+            <option disabled selected>-----select--------</option>
+            <option>First Term</option>
+            <option>Second Term</option>
+            <option>Third Term</option>
+          </select>
+        </div>
+        <div
+          class="tw-flex tw-w-full sm:tw-w-[507px] tw-justify-between tw-items-center"
+        >
           <label>Result PIn</label>
           <input
             type="text"
             class="tw-w[184px] sm:tw-w-[281px] tw-border tw-outline-none tw-px-[16px] tw-py-1.5 tw-shrink-0"
+            required
           />
         </div>
       </div>
@@ -44,12 +106,15 @@
         generate Result PIN now
       </p>
 
-      <button
+      <q-btn
+        :loading="isLoadingResult"
+        no-caps
         class="tw-w-[104px] tw-p-3 tw-bg-[#15015A] tw-rounded-[2px] text-white"
+        type="submit"
       >
         submit
-      </button>
-    </div>
+      </q-btn>
+    </form>
   </main>
 </template>
 
@@ -113,17 +178,16 @@ main {
   }
 }
 
-@media (max-width: 480px){
-  main{
+@media (max-width: 480px) {
+  main {
     margin: 25px auto;
     padding: 0 20px;
 
-    .s_subcomponent{
-
-      .form{
+    .s_subcomponent {
+      .form {
         width: 337px;
 
-        label{
+        label {
           font-size: 16px;
         }
       }
