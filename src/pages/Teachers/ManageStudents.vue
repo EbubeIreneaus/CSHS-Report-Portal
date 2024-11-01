@@ -8,26 +8,45 @@ const students = useStudentStore().students;
 
 const StudentTableColumn: QTableColumn[] = [
   { name: 'serial', field: '', label: 'S/N', align: 'left' },
-  { name: 'name', field: 'name', label: 'Name', align: 'left', sortable: true},
-  { name: 'studentId', field: 'id', label: 'Student Id', align: 'left', sortable: true },
-  { name: 'gender', field: 'gender', label: 'Gender', align: 'left', sortable: true },
+  { name: 'name', field: 'name', label: 'Name', align: 'left', sortable: true },
+  {
+    name: 'studentId',
+    field: 'id',
+    label: 'Student Id',
+    align: 'left',
+    sortable: true,
+  },
+  {
+    name: 'gender',
+    field: 'gender',
+    label: 'Gender',
+    align: 'left',
+    sortable: true,
+  },
   { name: 'age', field: 'age', label: 'Age', align: 'left', sortable: true },
   { name: 'contact', field: 'Contact', label: 'Contact', align: 'left' },
-  { name: 'position', field: 'position', label: 'Position', align: 'left', sortable: true },
+  {
+    name: 'position',
+    field: 'position',
+    label: 'Position',
+    align: 'left',
+    sortable: true,
+  },
   { name: 'remark', field: 'remark', label: 'Remark', align: 'left' },
   { name: 'action', field: '', label: 'Other', align: 'left' },
 ];
 </script>
 
 <template>
-  <div class="tw-mx-[100px]">
+  <div class="md:tw-mx-[100px] tw-mx-5">
     <div class="tw-flex tw-justify-between tw-item-center tw-mb-10">
       <q-btn
         icon="add"
-        label="Add New Student"
+        :label="$q.screen.width > 480 ? 'Add New Student' : ''"
         color="accent"
         class="tw-px-[20px] tw-py-[10px] tw-rounded-sm"
         no-caps
+        unelevated
       />
       <div class="tw-flex tw-border">
         <q-input
@@ -35,9 +54,14 @@ const StudentTableColumn: QTableColumn[] = [
           v-model="srch"
           borderless
           placeholder="Enter Keyword"
-          class="tw-px-2.5"
+          class="tw-px-2.5 tw-w-32 md:tw-w-64"
         />
-        <q-btn icon="search" label="search" no-caps unelevated />
+        <q-btn
+          icon="search"
+          :label="$q.screen.width > 480 ? 'search' : ''"
+          no-caps
+          unelevated
+        />
       </div>
     </div>
 

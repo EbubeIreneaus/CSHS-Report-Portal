@@ -203,7 +203,11 @@ onBeforeMount(()=>{
         >
           Print
         </button>
-       
+        <button
+          class="tw-w-[141px] tw-h-[50px] invisible tw-bg-[#2102BC]/10 tw-rounded-[2px] nt !tw-text-xl tw-me-[16px] hover:tw-bg-slate-100"
+        >
+          Share
+        </button>
       </div>
     </div>
 
