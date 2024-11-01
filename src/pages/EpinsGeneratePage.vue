@@ -7,12 +7,12 @@ import { useActivityStore } from 'src/stores/acivity';
 const $q = useQuasar();
 const s_options = ['2020/2021', '2021/2023', '2022/2023', '2023/2024']; //session options
 const { registerTimeout } = useTimeout();
-const router = useRouter()
+const router = useRouter();
 
 const form = reactive({
-  session: 'select',
+  session: '2024/2025',
   term: 'First',
-  level: null,
+  level: 'JSS1',
   email: 'danielolajireolamilekan2020@gmail.com',
   phone: '08061982520',
 });
@@ -25,22 +25,21 @@ function generate() {
     // backgroundColor: 'purple',
     message: 'Generating ePIN is in progress. Hang on...',
     messageColor: 'accent',
-
   });
 
   registerTimeout(() => {
     $q.loading.hide();
-    useActivityStore().is_ePin_generated = true
+    useActivityStore().is_ePin_generated = true;
+    useActivityStore().ePins.pin = Math.floor(Math.random() * 100000000000000);
     $q.dialog({
       title: 'ePIN Generated Successfully',
-      message: 'Would you like to return to homepage',
+      message: 'Would you like to check your result?',
       color: 'accent',
       cancel: true,
       persistent: true,
-    })
-      .onOk(() => {
-        return router.push('/')
-      });
+    }).onOk(() => {
+      return router.push('/check-result');
+    });
   }, 4000);
 }
 </script>

@@ -367,11 +367,6 @@ onBeforeMount(() => {
               <th class="tw-w-[150px] tw-text-xl tw-border">SUBJECT</th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">CA</div>
-                <div class="">40</div>
-              </th>
-              <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
-                <div class="rotated-text tw-mb-2">EXAM</div>
-                <div class="">60</div>
               </th>
               <th class="tw-border tw-w-[80px] tw-h-[150px] tw-text-lg">
                 <div class="rotated-text tw-mb-2">3RD TERM</div>

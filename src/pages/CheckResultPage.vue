@@ -9,6 +9,8 @@ const { registerTimeout } = useTimeout();
 const router = useRouter();
 const $q = useQuasar();
 
+const ePin = useActivityStore().ePins.pin
+
 const submit = () => {
   isLoadingResult.value = true;
 
@@ -44,12 +46,12 @@ const submit = () => {
             class="tw-outline-none tw-border tw-px-1 tw-py-1.5 tw-w-[127px]"
             required
           >
-            <option disabled selected>-----select--------</option>
+            <option disabled >-----select--------</option>
             <option>2020/2021</option>
             <option>2021/2022</option>
             <option>2022/2023</option>
             <option>2023/2024</option>
-            <option>2024/2025</option>
+            <option selected>2024/2025</option>
           </select>
         </div>
 
@@ -61,8 +63,8 @@ const submit = () => {
             class="tw-w-[143px] sm:tw-w-[163px] tw-border tw-outline-none tw-px-1 tw-py-1.5"
             required
           >
-            <option disabled selected>-----select--------</option>
-            <option>JSS1</option>
+            <option disabled>-----select--------</option>
+            <option selected>JSS1</option>
             <option>JSS2</option>
             <option>JSS3</option>
             <option>SS1</option>
@@ -80,7 +82,7 @@ const submit = () => {
             required
           >
             <option disabled selected>-----select--------</option>
-            <option>First Term</option>
+            <option selected>First Term</option>
             <option>Second Term</option>
             <option>Third Term</option>
           </select>
@@ -93,6 +95,7 @@ const submit = () => {
             type="text"
             class="tw-w[184px] sm:tw-w-[281px] tw-border tw-outline-none tw-px-[16px] tw-py-1.5 tw-shrink-0"
             required
+            v-model="ePin"
           />
         </div>
       </div>

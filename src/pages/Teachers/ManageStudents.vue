@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useStudentStore } from 'src/stores/Students';
 import { QTableColumn } from 'quasar';
 
 const srch = ref('');
-const students = useStudentStore().students;
+const students = ref();
+students.value = useStudentStore().students;
 
 const StudentTableColumn: QTableColumn[] = [
   { name: 'serial', field: '', label: 'S/N', align: 'left' },
@@ -35,6 +36,20 @@ const StudentTableColumn: QTableColumn[] = [
   { name: 'remark', field: 'remark', label: 'Remark', align: 'left' },
   { name: 'action', field: '', label: 'Other', align: 'left' },
 ];
+
+watch(
+  () => srch.value,
+  (val) => {
+    students.value = useStudentStore().students.filter(
+      (st) =>
+        st.name.toLowerCase().includes(val.toLowerCase()) ||
+        st.remark.toLowerCase().includes(val.toLowerCase()) ||
+        st.contact.includes(val) ||
+        st.age == Number(val) ||
+        st.id.toLowerCase().includes(val.toLowerCase())
+    );
+  }
+);
 </script>
 
 <template>
