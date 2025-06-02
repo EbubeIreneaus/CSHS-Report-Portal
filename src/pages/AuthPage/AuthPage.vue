@@ -19,12 +19,12 @@ const user = reactive({
 function Login() {
   isLogin.value = true;
   registerTimeout(() => {
-    if (user.id.startsWith('st') && user.password === '123456') {
+    if (user.id === 'student' && user.password === '123456') {
       useActivityStore().is_logged_in_as_student = true
       return router.push('/');
     }
 
-    if (user.id.startsWith('te') && user.password === '123456') {
+    if (user.id === 'teacher' && user.password === '123456') {
       useActivityStore().is_logged_in_as_teacher = true
       return router.push('/teacher');
     }
@@ -59,6 +59,7 @@ function Login() {
                 :borderless="true"
                 type="text"
                 class="input"
+                placeholder="try 'student' or 'teacher'"
                 id="id"
                 required
                 :error="form_error"
@@ -73,6 +74,7 @@ function Login() {
                 standout
                 :borderless="true"
                 type="password"
+                placeholder="try '123456'"
                 class="input"
                 id="id"
                 required

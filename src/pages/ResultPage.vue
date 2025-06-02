@@ -2,6 +2,9 @@
 <script setup>
 import html2pdf from 'html2pdf.js';
 import { onBeforeMount, onMounted } from 'vue';
+import {date} from 'quasar'
+
+const {addToDate, formatDate} = date
 
 const studentScores = [
   {
@@ -418,7 +421,7 @@ onBeforeMount(()=>{
         </div>
         <div>
           <span>Next Term Begin: </span>
-          <span class="tw-text-lg">Dec 12, 2024</span>
+          <span class="tw-text-lg">{{ formatDate(addToDate(new Date(), {days: 21}), 'MMM Do, YYYY') }}</span>
         </div>
       </div>
 
@@ -443,9 +446,7 @@ onBeforeMount(()=>{
   font-style: normal;
   font-weight: 400;
 }
-.rotated-text {
 
-}
 .a-c {
   color: $accent;
 }
